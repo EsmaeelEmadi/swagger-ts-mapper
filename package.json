@@ -1,11 +1,77 @@
 {
-	"devDependencies": {
-		"@commitlint/cli": "^19.6.1",
-		"@commitlint/config-conventional": "^19.6.0",
-		"@release-it/conventional-changelog": "^10.0.0",
-		"cz-conventional-changelog": "^3.3.0",
-		"cz-git": "^1.11.0",
-		"release-it": "^18.1.2",
-		"semantic-release": "^24.2.1"
-	}
+    "name": "swagger-ts-mapper",
+    "version": "0.0.0",
+    "description": "mapping swagger schemas to typescript types",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EsmaeelEmadi/ts-exc.git"
+    },
+    "keywords": ["typescript", "swagger"],
+    "author": "emad",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues"
+    },
+    "homepage": "https://github.com/EsmaeelEmadi/swagger-ts-mapper#readme",
+    "scripts": {
+        "prepare": "husky",
+        "lint": "biome check",
+        "fmt": "biome check --write",
+        "typecheck": "tsc --noEmit",
+        "precommit": "lint-staged",
+        "cm": "git-cz",
+        "release": "release-it",
+        "prepublishOnly": "npm pack --dry-run"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@release-it/conventional-changelog": "^10.0.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-git": "^1.11.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.4.3",
+        "release-it": "^18.1.2",
+        "semantic-release": "^24.2.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-git",
+            "czConfig": "./cz.config.mjs"
+        }
+    },
+    "release-it": {
+        "git": {
+            "commitMessage": "chore: release v${version}",
+            "commit": true,
+            "push": true,
+            "pushTags": true
+        },
+        "github": {
+            "release": true
+        },
+        "npm": {
+            "publish": true
+        },
+        "plugins": {
+            "@release-it/conventional-changelog": {
+                "infile": "CHANGELOG.md",
+                "preset": {
+                    "name": "conventionalcommits",
+                    "types": [
+                        {
+                            "type": "feat",
+                            "section": "Features"
+                        },
+                        {
+                            "type": "fix",
+                            "section": "Bug Fixes"
+                        }
+                    ]
+                }
+            }
+        }
+    }
 }
