@@ -1,20 +1,26 @@
 {
     "name": "swagger-ts-mapper",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "mapping swagger schemas to typescript types",
     "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/EsmaeelEmadi/ts-exc.git"
     },
-    "keywords": ["typescript", "swagger"],
+    "keywords": [
+        "typescript",
+        "swagger"
+    ],
     "author": "emad",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues"
     },
     "homepage": "https://github.com/EsmaeelEmadi/swagger-ts-mapper#readme",
-    "files": ["dist", "package.json"],
+    "files": [
+        "dist",
+        "package.json"
+    ],
     "exports": {
         ".": {
             "types": "./dist/index.d.ts"
