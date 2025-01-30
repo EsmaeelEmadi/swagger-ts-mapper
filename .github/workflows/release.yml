@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    branches: [main, beta]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    environment: secrets  
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+
+    - name: Install dependencies
+      run: npx ci
+
+    - name: Stage and commit any changes
+      run: |
+        git add .
+        git commit -m "chore: prepare for release" || echo "No changes to commit"
+
+    - name: Push changes to Git
+      run: |
+        git push origin main
+        git push --tags
+      
+    - name: Lint
+      run: npm run lint
+
+    - name: Build
+      run: npm run build      
+
+    - name: Set up npm authentication
+      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+    - name: Set up Git user
+      run: |
+        git config --global user.name "ci"
+        git config --global user.email "ci@gitlab.com"
+
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm run release
