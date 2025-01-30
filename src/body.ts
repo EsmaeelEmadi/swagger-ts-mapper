@@ -34,11 +34,7 @@ export type TBodyMapper<T extends TSchema | readonly TSchema[]> =
                           ? K extends T["required"][number]
                               ? K
                               : never
-                          : never]-?:
-                          | TBodyMapper<T["properties"][K]>
-                          | (T["properties"][K] extends { nullable: true }
-                                ? null
-                                : never);
+                          : never]-?: TBodyMapper<T["properties"][K]>;
                   } & {
                       // Optional properties
                       [K in keyof T["properties"] as T extends {
@@ -47,11 +43,7 @@ export type TBodyMapper<T extends TSchema | readonly TSchema[]> =
                           ? K extends T["required"][number]
                               ? never
                               : K
-                          : K]?:
-                          | TBodyMapper<T["properties"][K]>
-                          | (T["properties"][K] extends { nullable: true }
-                                ? null
-                                : never);
+                          : K]?: TBodyMapper<T["properties"][K]>;
                   }
                 : Record<string, unknown>
             : T["type"] extends "string"
