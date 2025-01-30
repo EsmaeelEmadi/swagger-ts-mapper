@@ -2,6 +2,10 @@ type TProperties = {
     [key: string]: TSchema;
 };
 
+type TFlatten<T> = T extends Record<string, unknown>
+    ? { [K in keyof T]: TFlatten<T[K]> }
+    : T;
+
 type TSchema = {
     type?: unknown;
     nullable?: boolean;
@@ -9,6 +13,9 @@ type TSchema = {
     items?: TProperties | { type: unknown };
     required?: readonly string[];
     properties?: TProperties;
+    additionalProperties?:
+        | boolean
+        | { type?: "string" | "integer" | "boolean" | "" };
     oneOf?: readonly TSchema[];
     allOf?: readonly TSchema[];
     anyOf?: readonly TSchema[];
@@ -25,35 +32,46 @@ type UnionToIntersection<U> = (
 export type TBodyMapper<T extends TSchema | readonly TSchema[]> =
     T extends TSchema
         ? T["type"] extends "object"
-            ? T["properties"] extends TProperties
-                ? {
-                      // Required properties
-                      [K in keyof T["properties"] as T extends {
-                          required: readonly string[];
-                      }
-                          ? K extends T["required"][number]
-                              ? K
-                              : never
-                          : never]-?:
-                          | TBodyMapper<T["properties"][K]>
-                          | (T["properties"][K] extends { nullable: true }
-                                ? null
-                                : never);
-                  } & {
-                      // Optional properties
-                      [K in keyof T["properties"] as T extends {
-                          required: readonly string[];
-                      }
-                          ? K extends T["required"][number]
-                              ? never
-                              : K
-                          : K]?:
-                          | TBodyMapper<T["properties"][K]>
-                          | (T["properties"][K] extends { nullable: true }
-                                ? null
-                                : never);
-                  }
-                : Record<string, unknown>
+            ? TFlatten<
+                  T["properties"] extends TProperties
+                      ? {
+                            // Required properties
+                            [K in keyof T["properties"] as T extends {
+                                required: readonly string[];
+                            }
+                                ? K extends T["required"][number]
+                                    ? K
+                                    : never
+                                : never]-?:
+                                | TBodyMapper<T["properties"][K]>
+                                | (T["properties"][K] extends { nullable: true }
+                                      ? null
+                                      : never);
+                        } & {
+                            // Optional properties
+                            [K in keyof T["properties"] as T extends {
+                                required: readonly string[];
+                            }
+                                ? K extends T["required"][number]
+                                    ? never
+                                    : K
+                                : K]?:
+                                | TBodyMapper<T["properties"][K]>
+                                | (T["properties"][K] extends { nullable: true }
+                                      ? null
+                                      : never);
+                        } & (T["additionalProperties"] extends true
+                                ? { [key: string]: unknown }
+                                : T["additionalProperties"] extends TSchema
+                                  ? {
+                                        [key: string]: TBodyMapper<
+                                            T["additionalProperties"]
+                                        >;
+                                    }
+                                  : // biome-ignore lint/complexity/noBannedTypes: FIXME: find better type to replace
+                                    {})
+                      : Record<string, unknown>
+              >
             : T["type"] extends "string"
               ? "enum" extends keyof T
                   ? T["enum"] extends readonly string[]
