@@ -7,20 +7,14 @@
         "type": "git",
         "url": "git+https://github.com/EsmaeelEmadi/ts-exc.git"
     },
-    "keywords": [
-        "typescript",
-        "swagger"
-    ],
+    "keywords": ["typescript", "swagger"],
     "author": "emad",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues"
     },
     "homepage": "https://github.com/EsmaeelEmadi/swagger-ts-mapper#readme",
-    "files": [
-        "dist",
-        "package.json"
-    ],
+    "files": ["dist", "package.json"],
     "exports": {
         ".": {
             "types": "./dist/index.d.ts"
