@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Skip in CI
+if [ "$CI" = "true" ]; then
+  exit 0
+fi
+
+npx --no-install commitlint --edit "$1"
