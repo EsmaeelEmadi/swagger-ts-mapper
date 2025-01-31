@@ -12,7 +12,7 @@ type TSchema = {
     type?: unknown;
     nullable?: boolean;
     enum?: unknown;
-    items?: TProperties | { type: unknown };
+    items?: TProperties | { type: unknown } | readonly TSchema[];
     required?: readonly string[];
     properties?: TProperties;
     additionalProperties?:
@@ -94,7 +94,9 @@ export type TBodyMapper<T extends TSchema | readonly TSchema[]> =
                     ? "items" extends keyof T
                         ? T["items"] extends { type: unknown }
                             ? TBodyMapper<T["items"]>[]
-                            : never
+                            : T["items"] extends readonly TSchema[]
+                              ? [TBodyMapper<T["items"][number]>]
+                              : never
                         : never
                     : T["type"] extends "null"
                       ? null
