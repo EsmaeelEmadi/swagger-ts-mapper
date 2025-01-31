@@ -1,6 +1,6 @@
 {
     "name": "swagger-ts-mapper",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "mapping swagger schemas to typescript types",
     "type": "module",
     "repository": {

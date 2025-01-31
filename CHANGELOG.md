@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.3.1 (2025-01-31)</small>
+
+* chore(ci): remove lint from release.yml (#19) ([5612278](https://github.com/EsmaeelEmadi/ts-exc/commit/5612278)), closes [#19](https://github.com/EsmaeelEmadi/ts-exc/issues/19)
+
 ## 0.3.0 (2025-01-31)
 
 * feat(core): handle tuples (#16) ([0d232ee](https://github.com/EsmaeelEmadi/ts-exc/commit/0d232ee)), closes [#16](https://github.com/EsmaeelEmadi/ts-exc/issues/16)
