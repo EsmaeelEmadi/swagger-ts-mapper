@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 (2025-01-31)
+
+* feat(core): add support for binary (#20) ([4d94e49](https://github.com/EsmaeelEmadi/ts-exc/commit/4d94e49)), closes [#20](https://github.com/EsmaeelEmadi/ts-exc/issues/20)
+
 ## <small>0.3.1 (2025-01-31)</small>
 
 * chore(ci): remove lint from release.yml (#19) ([5612278](https://github.com/EsmaeelEmadi/ts-exc/commit/5612278)), closes [#19](https://github.com/EsmaeelEmadi/ts-exc/issues/19)
