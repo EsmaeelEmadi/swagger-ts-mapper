@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 (2025-01-31)
+
+* feat(core): handle tuples (#16) ([0d232ee](https://github.com/EsmaeelEmadi/ts-exc/commit/0d232ee)), closes [#16](https://github.com/EsmaeelEmadi/ts-exc/issues/16)
+
 ## 0.2.0 (2025-01-31)
 
 * feat(core): remove readonly from inferred types (#14) ([65a7e0b](https://github.com/EsmaeelEmadi/ts-exc/commit/65a7e0b)), closes [#14](https://github.com/EsmaeelEmadi/ts-exc/issues/14)
