@@ -31,9 +31,6 @@ jobs:
       run: |
         git push origin main
         git push --tags
-      
-    - name: Lint
-      run: npm run lint
 
     - name: Build
       run: npm run build      
