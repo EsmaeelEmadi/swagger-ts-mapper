@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 (2025-01-31)
+
+* feat(core): remove readonly from inferred types (#14) ([65a7e0b](https://github.com/EsmaeelEmadi/ts-exc/commit/65a7e0b)), closes [#14](https://github.com/EsmaeelEmadi/ts-exc/issues/14)
+
 ## 0.1.0 (2025-01-30)
 
 * feat(core): handle additional properties in request body (#12) ([65515e7](https://github.com/EsmaeelEmadi/ts-exc/commit/65515e7)), closes [#12](https://github.com/EsmaeelEmadi/ts-exc/issues/12)
