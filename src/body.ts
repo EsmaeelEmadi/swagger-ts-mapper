@@ -1,35 +1,10 @@
-type TProperties = {
-    [key: string]: TSchema;
-};
-
-type TFlatten<T> = T extends Record<string, unknown>
-    ? { [K in keyof T]: TFlatten<T[K]> }
-    : T;
-
-type TMutable<T> = { -readonly [K in keyof T]: T[K] };
-
-type TSchema = {
-    type?: unknown;
-    nullable?: boolean;
-    enum?: unknown;
-    items?: TProperties | { type: unknown } | readonly TSchema[];
-    required?: readonly string[];
-    properties?: TProperties;
-    additionalProperties?:
-        | boolean
-        | { type?: "string" | "integer" | "boolean" | "" };
-    oneOf?: readonly TSchema[];
-    allOf?: readonly TSchema[];
-    anyOf?: readonly TSchema[];
-};
-
-type UnionToIntersection<U> = (
-    U extends unknown
-        ? (k: U) => void
-        : "never-1"
-) extends (k: infer I) => void
-    ? I
-    : "never-2";
+import type {
+    TFlatten,
+    TMutable,
+    TProperties,
+    TSchema,
+    UnionToIntersection,
+} from "./types.ts";
 
 export type TBodyMapper<T extends TSchema | readonly TSchema[]> =
     T extends TSchema
