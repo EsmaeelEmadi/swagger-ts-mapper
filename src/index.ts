@@ -1,1 +1,2 @@
-export { TBodyMapper } from "./body";
+export { BodyMapper } from "./mappers/bodyMapper";
+export { SwaggerMapper } from "./mappers/swaggerMapper";
