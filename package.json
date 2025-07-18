@@ -21,7 +21,7 @@
         }
     },
     "scripts": {
-        "build": "npx tsc",
+        "build": "rm -rf dist && npx tsc",
         "fmt": "npx @biomejs/biome format --write .",
         "lint": "npx @biomejs/biome lint --write .",
         "check": "npx @biomejs/biome check --write .",
