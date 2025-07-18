@@ -1,7 +1,5 @@
-import type { SwaggPath } from "./swaggerPath";
-
 export interface Swagger {
-    paths?: SwaggPath;
+    paths?: unknown;
     components?: unknown;
     [key: string]: unknown;
 }
