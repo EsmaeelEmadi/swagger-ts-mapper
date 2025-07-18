@@ -5,37 +5,30 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/EsmaeelEmadi/ts-exc.git"
+        "url": "git+https://github.com/EsmaeelEmadi/swagger-ts-mapper.git"
     },
-    "keywords": [
-        "typescript",
-        "swagger"
-    ],
+    "keywords": ["typescript", "swagger"],
     "author": "emad",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues"
     },
     "homepage": "https://github.com/EsmaeelEmadi/swagger-ts-mapper#readme",
-    "files": [
-        "dist",
-        "package.json"
-    ],
+    "files": ["dist", "package.json"],
     "exports": {
         ".": {
             "types": "./dist/index.d.ts"
         }
     },
     "scripts": {
-        "build": "tsc",
-        "prepare": "husky",
-        "lint": "biome check",
-        "fmt": "biome check --write",
-        "typecheck": "tsc --noEmit",
-        "precommit": "lint-staged",
+        "build": "rm -rf dist && npx tsc",
+        "fmt": "npx @biomejs/biome format --write .",
+        "lint": "npx @biomejs/biome lint --write .",
+        "check": "npx @biomejs/biome check --write .",
         "cm": "git-cz",
         "release": "release-it",
-        "prepublishOnly": "npm pack --dry-run"
+        "prepublishOnly": "npm pack --dry-run",
+        "prepare": "npx lefthook install"
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -45,8 +38,7 @@
         "commitizen": "^4.3.1",
         "cz-conventional-changelog": "^3.3.0",
         "cz-git": "^1.11.0",
-        "husky": "^9.1.7",
-        "lint-staged": "^15.4.3",
+        "lefthook": "^1.12.2",
         "release-it": "^18.1.2",
         "semantic-release": "^24.2.1"
     },
