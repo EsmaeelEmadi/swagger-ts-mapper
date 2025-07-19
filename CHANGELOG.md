@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.4.1 (2025-07-19)</small>
+
+* Feature/prepare for release (#23) ([11ce433](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/11ce433)), closes [#23](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/23)
+
 ## 0.4.0 (2025-01-31)
 
 * feat(core): add support for binary (#20) ([4d94e49](https://github.com/EsmaeelEmadi/ts-exc/commit/4d94e49)), closes [#20](https://github.com/EsmaeelEmadi/ts-exc/issues/20)
