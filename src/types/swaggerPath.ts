@@ -1,4 +1,3 @@
-import type { ResponseFormat } from "./responseFormat";
 import type { Schema } from "./schema";
 
 export type SwaggPath = Record<
@@ -9,7 +8,7 @@ export type SwaggPath = Record<
             responses: Record<
                 string,
                 {
-                    content: Record<ResponseFormat, { schema: Schema }>;
+                    content: Record<string, { schema: Schema }>;
                     [key: string]: unknown;
                 }
             >;
