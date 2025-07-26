@@ -23,7 +23,8 @@
         "cm": "git-cz",
         "release": "release-it",
         "prepublishOnly": "npm pack --dry-run",
-        "prepare": "npx lefthook install"
+        "prepare": "npx lefthook install",
+        "postinstall": "chmod +x ./node_modules/.bin/biome"
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
