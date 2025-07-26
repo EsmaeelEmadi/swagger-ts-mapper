@@ -1,11 +1,11 @@
 import type { BodyMapper } from "../mappers/bodyMapper";
+import type { Parameter } from "../types/parameter";
 import type { Swagger } from "../types/swagger";
 import type { Flatten } from "./flatten";
 
 export type MapByIn<
     S extends Swagger,
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    P extends any[],
+    P extends readonly Parameter[],
     InValue extends string,
 > = Flatten<
     {

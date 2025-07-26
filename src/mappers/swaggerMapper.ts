@@ -1,8 +1,11 @@
 import type { HttpMethod } from "../types/httpMethod";
-import type { Schema } from "../types/schema";
+import type { Parameter } from "../types/parameter";
+import type { RequestBody } from "../types/requestBody";
+import type { Responses } from "../types/responses";
 import type { Swagger } from "../types/swagger";
-import type { ParametersMapper } from "../utils/parametersMapper";
-import type { BodyMapper } from "./bodyMapper";
+import type { ParametersMapper } from "./parametersMapper";
+import type { ResponseMapper } from "./reponseMapper";
+import type { RequestBodyMapper } from "./requestBodyMapper";
 
 export type SwaggerMapper<T extends Swagger> = {
     [Path in keyof T["paths"]]: {
@@ -13,36 +16,13 @@ export type SwaggerMapper<T extends Swagger> = {
             parameters?: infer P;
         }
             ? {
-                  responses: {
-                      [StatusCode in keyof R]: R[StatusCode] extends {
-                          content: infer C;
-                      }
-                          ? {
-                                [ContentType in keyof C]: C[ContentType] extends {
-                                    schema: infer S;
-                                }
-                                    ? S extends Schema
-                                        ? BodyMapper<T, S>
-                                        : never
-                                    : never;
-                            }
-                          : unknown;
-                  };
-
-                  requestBody: "content" extends keyof RB
-                      ? {
-                            [ContentType in keyof RB["content"]]: "schema" extends keyof RB["content"][ContentType]
-                                ? RB["content"][ContentType]["schema"] extends infer S
-                                    ? S extends Schema
-                                        ? BodyMapper<T, S>
-                                        : never
-                                    : never
-                                : never;
-                        }
+                  responses: R extends Responses ? ResponseMapper<T, R> : never;
+                  requestBody: RB extends RequestBody
+                      ? RequestBodyMapper<T, RB>
                       : never;
-
-                  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-                  parameters: P extends any[] ? ParametersMapper<T, P> : never;
+                  parameters: P extends readonly Parameter[]
+                      ? ParametersMapper<T, P>
+                      : never;
               }
             : never;
     };
