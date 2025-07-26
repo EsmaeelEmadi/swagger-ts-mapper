@@ -21,7 +21,7 @@ The Swagger Type Mapper is a simple TypeScript type library that provides a robu
 npm install --save-dev swagger-ts-mapper
 ```
 
-## 💡 Usage
+## Usage
 
 Using this library is a simple, three-step process.
 
@@ -147,7 +147,7 @@ While SwaggerMapper is the main entry point, the package also exposes the underl
 
 This library contains no runtime code. It leverages advanced TypeScript features like Conditional Types, the infer keyword, and Mapped Types with Key Remapping to recursively parse the structure of your schema object at the type level. The as const assertion provides the necessary literal type information for this process to be possible.
 
-## 🤝 Contributing
+## Contributing
 This project is a self-contained type utility. If you have suggestions for improvements or find edge cases, please consider sharing them.
 
 ## License

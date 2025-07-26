@@ -23,8 +23,7 @@
         "cm": "git-cz",
         "release": "release-it",
         "prepublishOnly": "npm pack --dry-run",
-        "prepare": "npx lefthook install",
-        "postinstall": "chmod +x ./node_modules/.bin/biome"
+        "prepare": "npx lefthook install"
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -81,5 +80,5 @@
         "type": "git",
         "url": "git+https://github.com/EsmaeelEmadi/swagger-ts-mapper.git"
     },
-    "keywords": ["typescript", "swagger"]
+    "keywords": ["typescript", "swagger", "openapi"]
 }
