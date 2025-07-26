@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.4.5 (2025-07-26)</small>
+
+* Bugfix/fix package json postinstall script (#27) ([de7a814](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/de7a814)), closes [#27](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/27)
+
 ## <small>0.4.4 (2025-07-26)</small>
 
 * docs(readme): update documentation with installation and usage details (#26) ([6e831bf](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/6e831bf)), closes [#26](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/26)
