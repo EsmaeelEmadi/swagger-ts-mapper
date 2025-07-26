@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.4.4 (2025-07-26)</small>
+
+* docs(readme): update documentation with installation and usage details (#26) ([6e831bf](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/6e831bf)), closes [#26](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/26)
+
 ## <small>0.4.3 (2025-07-26)</small>
 
 * Feature/mapper improvements (#25) ([1798bbe](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/1798bbe)), closes [#25](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/25)
