@@ -1,5 +1,9 @@
 # Changelog
 
+## <small>0.4.2 (2025-07-26)</small>
+
+* Bugfix/fix package json issues (#24) ([acfb51a](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/acfb51a)), closes [#24](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/24)
+
 ## <small>0.4.1 (2025-07-19)</small>
 
 * Feature/prepare for release (#23) ([11ce433](https://github.com/EsmaeelEmadi/swagger-ts-mapper/commit/11ce433)), closes [#23](https://github.com/EsmaeelEmadi/swagger-ts-mapper/issues/23)

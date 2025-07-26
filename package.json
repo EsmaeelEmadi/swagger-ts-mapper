@@ -1,6 +1,6 @@
 {
     "name": "swagger-ts-mapper",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "type": "module",
     "types": "dist/index.d.ts",
     "author": "emad",
@@ -76,12 +76,10 @@
             }
         }
     },
-
     "description": "mapping swagger schemas to typescript types",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/EsmaeelEmadi/swagger-ts-mapper.git"
     },
-
     "keywords": ["typescript", "swagger"]
 }
