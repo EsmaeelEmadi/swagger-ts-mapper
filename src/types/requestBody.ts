@@ -1,7 +1,7 @@
 import type { Schema } from "./schema";
 
 export type RequestBody = {
-    content: {
+    content?: {
         [key: string]: {
             schema: Schema;
         };
